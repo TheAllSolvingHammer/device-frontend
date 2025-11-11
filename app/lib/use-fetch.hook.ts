@@ -8,6 +8,7 @@ export default function useFetch<TData = unknown>() {
     const [error, setError] = useState<Error | null>(null)
     const [response, setResponse] = useState<TData | null>(null)
     const { token } = useAuth()
+
     const internalFetch = useCallback(
         async (
             input: URL | RequestInfo,
@@ -57,6 +58,7 @@ export default function useFetch<TData = unknown>() {
             abortControllerRef.current?.abort?.()
         }
     }, [])
+
     return { fetch: internalFetch, isLoading, isLoadingRef, error,
         response }
 }

@@ -1,13 +1,16 @@
-import { Link, useNavigate } from 'react-router'
-import { useAuth } from '../auth/AuthProvider'
-import { Button } from '../ui/button'
+import {Link, useNavigate} from 'react-router'
+import {useAuth} from '../auth/AuthProvider'
+import {Button} from '../ui/button'
+
 export function Header() {
-    const { user, logout } = useAuth()
+    const {user, logout} = useAuth()
     const navigate = useNavigate()
+
     const handleLogout = () => {
         logout()
         navigate('/')
     }
+
     return (
         <header className='border-b bg-background'>
             <div className='container mx-auto flex h-16 items-center

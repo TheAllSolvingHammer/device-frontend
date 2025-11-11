@@ -18,6 +18,7 @@ import {loginSchema, type LoginData, type LoginResponse} from '~/models/auth.mod
 import {getApiUrl} from "~/lib/utils";
 import {Spinner} from "~/components/ui/spinner";
 import {useEffect} from "react";
+
 export function LoginForm() {
     const navigate = useNavigate()
     const location = useLocation()
@@ -31,26 +32,16 @@ export function LoginForm() {
             password: '',
         },
     })
-    // if (isAuthenticated) {
-    //     return <Navigate to='/' replace />
-    // }
-
 
     if (isAuthenticated) {
-        // optional guard for debugging
-        console.log("Already authenticated — redirecting")
+        return <Navigate to='/' replace />
     }
 
-    useEffect(() => {
-        if (isAuthenticated) {
-            navigate('/', { replace: true })
-        }
-    }, [isAuthenticated, navigate])
     const onSubmit = async (data: LoginData) => {
-        console.log("adsasddsadsa")
         if (isLoadingRef.current) {
             return
         }
+
         try {
             const apiUrl = getApiUrl('api/v1/users/login')
             const authResponse = await fetch(apiUrl, 'POST', data)

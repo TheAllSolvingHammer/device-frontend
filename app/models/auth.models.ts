@@ -7,9 +7,7 @@ export const loginSchema = z.object({
         .min(1, { message: 'Потребителското име е задължително.' }),
     password: z
         .string()
-        .min(4, { message: 'Паролата трябва да е поне 4 символа.' }),
-    policyAccept: z
-      .boolean().refine(value=>value===true, "Please accept")
+        .min(4, { message: 'Паролата трябва да е поне 4 символа.' })
 
 })
 export type LoginData = z.infer<typeof loginSchema>
