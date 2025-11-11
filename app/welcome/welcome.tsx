@@ -1,7 +1,8 @@
 import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
+import {Hello} from "~/welcome/test";
 
-export function Welcome() {
+function Welcome() {
   return (
     <main className="flex items-center justify-center pt-16 pb-4">
       <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
@@ -24,6 +25,7 @@ export function Welcome() {
             <p className="leading-6 text-gray-700 dark:text-gray-200 text-center">
               What&apos;s next?
             </p>
+              {/*<Hello name={"Az"}/>*/}
             <ul>
               {resources.map(({ href, text, icon }) => (
                 <li key={href}>
@@ -45,6 +47,8 @@ export function Welcome() {
     </main>
   );
 }
+
+export default Welcome
 
 const resources = [
   {
